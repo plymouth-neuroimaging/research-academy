@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{tikz}
+
+\begin{document}
+
+% These set the width of a day and the height of an hour.
+\newcommand*\daywidth{6cm}
+\newcommand*\hourheight{3.2em}
+
+\tikzset{entry/.style 2 args={
+    xshift=(0.5334em+0.8pt)/2,
+    draw,
+    line width=0.8pt,
+    font=\sffamily,
+    rectangle,
+    rounded corners,
+    fill=blue!20,
+    anchor=north west,
+    inner sep=0.3333em,
+    text width={\daywidth/#2-1.2em-1.6pt},
+    minimum height=#1*\hourheight,
+    align=center
+}}
+
+% Start the picture and set the x coordinate to correspond to days and the y
+% coordinate to correspond to hours (y should point downwards).
+\begin{tikzpicture}[y=-\hourheight,x=\daywidth]
+    % First print a list of times.
+    \foreach \time/\ustime in {14/14:00,15/15:00,16/16:00,17/17:00}
+        \node[anchor=north east] at (0.95,\time) {\ustime};
+
+    % Draw some day dividers.
+    % \draw (1,13.5) -- (1,18);
+    % \draw (2,13.5) -- (2,18);
+
+    % Start Monday.
+    \node[anchor=north] at (1.5,13.5) {Fri. 28th July};
+    % Write the entries. Note that the x coordinate is 1 (for Monday) plus an
+    % appropriate amount of shifting. The y coordinate is simply the starting
+    % time.
+    \node[entry={0.85}{1}] at (1,14) {DICOM};
+    \node[entry={0.85}{1}] at (1,15) {Python};
+    \node[entry={0.85}{1}] at (1,16) {Neural networks};
+
+\end{tikzpicture}
+\end{document}
