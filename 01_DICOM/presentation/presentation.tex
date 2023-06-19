@@ -1,0 +1,92 @@
+% SPDX-FileCopyrightText: 2023 Mark Thurston
+%
+% SPDX-License-Identifier: Apache-2.0
+
+\documentclass{beamer}
+
+% https://deic.uab.cat/~iblanes/beamer_gallery/index_by_theme.html
+\usetheme{Copenhagen}
+% https://deic.uab.cat/~iblanes/beamer_gallery/index_by_color.html
+\usecolortheme{beaver}
+
+\setbeamertemplate{items}[circle]
+
+% font config (https://tug.org/FontCatalogue/)
+\usepackage[T1]{fontenc}
+\usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf} %
+\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be monospaced
+% for GitHub icon
+\usepackage{fontawesome}
+\usepackage{tikz}
+
+% UK date format
+% https://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/datetime2
+\usepackage[useregional]{datetime2}
+
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\addbibresource{bibliography.bib}
+
+% title page details %%%%%%%%%%%%%%%%%%%
+\title{Introduction to DICOM}
+\subtitle{Academy Research Day}
+\author{Dr Mark Thurston}
+\institute{\href{https://github.com/plymouth-neuroimaging/research-academy
+    }{\faGithub{} plymouth-neuroimaging}
+}
+\date{\DTMdisplaydate{2023}{07}{28}{Friday}}
+\logo{\includegraphics[width=2.5cm]{images/uoplogo.jpg}}
+\titlegraphic{
+    \begin{tikzpicture}[overlay,remember picture]
+        \node[below=1cm] at (current page.north){
+            \includegraphics[width=2cm]{images/dicomlogo.jpg}
+            };
+    \end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}
+    \titlepage{}
+\end{frame}
+
+\begin{frame}{Outline}
+    \begin{itemize}
+        \item{Clinical relevance}
+        \item{File format}
+        \item{Network protocol}
+        \item{Examples}
+        \item{Hands-on practice}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Clinical relevance}
+\end{frame}
+
+\begin{frame}{File format}
+    \tiny\textit{{``A key feature in the design of the PACS is that the image
+    data sent from the modalities and stored in the archive are in a format
+    that can be recognized and used within the complete system. The image file
+    contains the basic digital data that allow it to be displayed, but it also
+    contains essential information including the imaging modality, annotations,
+    display preferences, the patient’s name and other identifying data. The
+    presentation of these data must be in a standard format, and the standard
+    used is DICOM. The standard is complex. \ldots{}}''
+    }\cite[88]{allisy-roberts_farrs_2008}
+\end{frame}
+
+\begin{frame}{Network protocol}
+\end{frame}
+
+\begin{frame}{Examples}
+\end{frame}
+
+\begin{frame}{Hands-on practice}
+\end{frame}
+
+\begin{frame}{References}
+    \printbibliography{}
+\end{frame}
+
+
+\end{document}
