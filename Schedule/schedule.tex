@@ -1,11 +1,20 @@
 \documentclass{article}
 \usepackage{tikz}
+\usepackage{datetime}
+
+\title{Academy Research Day}
+\newdate{date}{28}{07}{2023}
+\date{\displaydate{date}}
 
 \begin{document}
+\maketitle
+
 
 % These set the width of a day and the height of an hour.
 \newcommand*\daywidth{6cm}
-\newcommand*\hourheight{3.2em}
+\newcommand*\hourheight{3.8em}
+
+\centering
 
 \tikzset{entry/.style 2 args={
     xshift=(0.5334em+0.8pt)/2,
@@ -27,20 +36,23 @@
 \begin{tikzpicture}[y=-\hourheight,x=\daywidth]
     % First print a list of times.
     \foreach \time/\ustime in {14/14:00,15/15:00,16/16:00,17/17:00}
-        \node[anchor=north east] at (0.95,\time) {\ustime};
+        \node[anchor=north east] at (0,\time) {\ustime};
 
-    % Draw some day dividers.
-    % \draw (1,13.5) -- (1,18);
-    % \draw (2,13.5) -- (2,18);
-
-    % Start Monday.
-    \node[anchor=north] at (1.5,13.5) {Fri. 28th July};
     % Write the entries. Note that the x coordinate is 1 (for Monday) plus an
     % appropriate amount of shifting. The y coordinate is simply the starting
     % time.
-    \node[entry={0.85}{1}] at (1,14) {DICOM};
-    \node[entry={0.85}{1}] at (1,15) {Python};
-    \node[entry={0.85}{1}] at (1,16) {Neural networks};
+    \node[entry={0.85}{1}] at (0,14) {
+        \textbf{DICOM introduction}\\
+        \textit{\footnotesize{Lead: Mark Thurston}}
+    };
+    \node[entry={0.85}{1}] at (0,15) {
+        \textbf{Python introduction}\\
+        \textit{\footnotesize{Lead: Hongrui Wang}}
+    };
+    \node[entry={0.85}{1}] at (0,16) {
+        \textbf{Neural networks introduction}
+        \\\textit{\footnotesize{Lead: Megan Courtman}}
+    };
 
 \end{tikzpicture}
 \end{document}
