@@ -19,11 +19,18 @@
 \usepackage{fontawesome}
 \usepackage{tikz}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan}
+
 % UK date format
 % https://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/datetime2
 \usepackage[useregional]{datetime2}
 
-\usepackage[backend=biber, style=authoryear]{biblatex}
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
 \addbibresource{bibliography.bib}
 
 % title page details %%%%%%%%%%%%%%%%%%%
@@ -61,9 +68,20 @@
 \end{frame}
 
 \begin{frame}{Clinical relevance}
+    Knowing a bit about DICOM can be useful:
+    \begin{itemize}
+        \item{Sorting Osirix/Horos libraries}
+        \item{Finding a bit more about acquisition parameters (e.g. MRI)}
+        \item{Converting DICOM files to images/videos for teaching}
+        \item{Machine learning research projects}
+            \begin{itemize}
+                \item{Batch download of image data}
+                \item{Batch anonymisation}
+            \end{itemize}
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{File format}
+\begin{frame}{DICOM File format}
     \tiny\textit{{``A key feature in the design of the PACS is that the image
     data sent from the modalities and stored in the archive are in a format
     that can be recognized and used within the complete system. The image file
@@ -75,16 +93,44 @@
     }\cite[88]{allisy-roberts_farrs_2008}
 \end{frame}
 
-\begin{frame}{Network protocol}
+\begin{frame}{DICOM File format}
 \end{frame}
 
-\begin{frame}{Examples}
+\begin{frame}{DICOM Network protocol}
+    \begin{enumerate}
+        \item{\textbf{C-ECHO}: The most basic command. \textit{``Are you there?''}}
+        \item{\textbf{C-FIND}: functionality similar to the explorer patient search window on PACS \textit{``What scans has patient with ID xxxxxx had?''}}
+        \item{\textbf{C-MOVE}: transfers image data between devices \textit{``Can you send me the pictures for the study with ID xxxxxx?''}}
+    \end{enumerate}
 \end{frame}
 
 \begin{frame}{Hands-on practice}
+    Resources
+    \begin{itemize}
+        \item{\href{https://dcmtk.org/}{DCMTK}: a set of free tools to work with the DICOM network protocol and DICOM files}
+            \begin{itemize}
+                \item{\textit{brew install dcmtk}}
+            \end{itemize}
+        \item{\href{https://dicomserver.co.uk/}{dicomserver.co.uk}: a generic DICOM server for public use from one of the inventors of DICOM}.
+            \begin{itemize}
+                \item{Hostname: \textit{dicomserver.co.uk}}
+                \item{Port: \textit{104 } or \textit{11112}}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{C-ECHO}
+    \textit{echoscu}
+\end{frame}
+
+\begin{frame}{C-FIND}
+\end{frame}
+
+\begin{frame}{C-MOVE}
 \end{frame}
 
 \begin{frame}{References}
+    \renewcommand*{\bibfont}{\tiny}
     \printbibliography{}
 \end{frame}
 
